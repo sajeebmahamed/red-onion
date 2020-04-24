@@ -1,0 +1,27 @@
+.cart{
+    display: flex;
+}
+.cart-info{
+    padding: 10px;
+}
+.input-group{
+    width: unset;
+    margin-left: 45px;
+}
+.center-item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.cart-item .form-control{
+	background-color: #F6F5FA;
+	border: none;
+    width: 65px;
+    border-radius: 10px!important;
+    font-weight: 700;
+    font-size: 20px;
+}
+.checkout-btn{
+    padding: 8px 194px;
+    background-color: gray;
+}

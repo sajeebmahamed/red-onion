@@ -1,0 +1,17 @@
+.banner{
+    background-image: url(../../bannerbackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+.search{
+    width: 35% !important;
+    border-radius: 30px;
+}
+/* backgroundColor: "#F91944", color: "#fff", borderRadius: "30px" */
+.search-btn{
+    background-color: #F91944;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0px 25px;
+}
