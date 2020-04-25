@@ -88,7 +88,7 @@ const Cart = (props) => {
                         <p className="d-flex justify-content-between"> <span> Tax </span> <span> {tax} </span> </p>
                         <p className="d-flex justify-content-between"> <span> Delivery fee </span> <span> {deliveryFee} </span> </p>
                         <p className="d-flex justify-content-between"> <span> Total </span> <span> {(total + deliveryFee + tax).toFixed(2)} </span> </p>
-                        <Button className = "checkout-btn" >Check Out Your Food</Button>
+                        <Button onClick={props.handleProccedCheckout} className = "checkout-btn" >Check Out Your Food</Button>
                     </div>
                 </Col>
             </Row>

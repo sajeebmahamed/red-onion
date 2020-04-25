@@ -20,7 +20,7 @@ function App() {
   }
   const handleCheckOut = (productId, productQuantity) => {
     const newCart = cart.map(item => {
-      if(item.id == productId){
+      if (item.id == productId) {
         item.quantity = productQuantity;
       }
       return item;
@@ -28,12 +28,15 @@ function App() {
     const filteredCart = newCart.filter(item => item.quantity > 0)
     setCart(filteredCart)
   }
+  const handleProccedCheckout = () => {
+    setCart([]);
+  }
   return (
     <div>
       <Router>
-      <Header to = "/cart"  cart = {cart}>
+        <Header to="/cart" cart={cart}>
           <Cart></Cart>
-      </Header>
+        </Header>
         <Switch>
           <Route exact path="/">
             <Banner></Banner>
@@ -43,7 +46,7 @@ function App() {
             <ProductDetails handleAddToCart={handleAddToCart}></ProductDetails>
           </Route>
           <Route>
-            <Cart handleCheckOut={handleCheckOut} cart={cart}></Cart>
+            <Cart handleProccedCheckout={handleProccedCheckout} handleCheckOut={handleCheckOut} cart={cart}></Cart>
           </Route>
         </Switch>
       </Router>
