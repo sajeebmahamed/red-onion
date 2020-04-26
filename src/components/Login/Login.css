@@ -1,0 +1,8 @@
+.login-form{
+    width: 40%;
+    margin: 60px auto;
+}
+.login-form input{
+    height: 52px;
+    background-color: whitesmoke;
+}

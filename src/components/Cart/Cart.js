@@ -4,14 +4,25 @@ import { useForm } from 'react-hook-form'
 import './Cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { getDatabaseCart } from '../../utilities/databaseManager';
+import { Link } from 'react-router-dom';
+import Auth from '../Login/useAuth';
 const Cart = (props) => {
-    console.log(props);
+    const auth = Auth();
+    const handleSignIn = () => {
+        auth.singInWithGoogle()
+            .then(res => {
+                // window.location.pathname = '/cart';
+                // window.history.back(); 
+            })
+    }
+    // console.log(props);
     const cart = props.cart;
     const total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     const totalQuantity = cart.reduce((total, item) => {
         return total + item.quantity;
     },0)
-
+    
     //Delivery fee
     let deliveryFee = 0;
     if (total > 100) {
@@ -33,10 +44,13 @@ const Cart = (props) => {
     const onSubmit = data => { console.log(data) }
     return (
         <Container>
-            <Row>
+            <Row> 
+                {
+                    cart.length<1 && <h2> Your Shopping Cart is Empty! Keep Shopping </h2>
+                }
                 <Col md={6}>
+                    {cart.length ?
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <input className = "form-control" name="deliver" ref={register({ required: true })} placeholder="Deliver to Door" />
                         {errors.deliver && <span style={{ color: "red" }}>Deliver to Door required</span>}
                         <br />
@@ -54,16 +68,21 @@ const Cart = (props) => {
                         <br />
                         <input style={{ backgroundColor:"#F91944", color:"#fff"}} className = "form-control" type="submit" />
                     </form>
+                    : <p></p>
+                    }
                 </Col>
                 <Col md={6}>
+                    {cart.length ?
                     <div>
                         <h4>From Gulshan Plaza Restura GPR</h4>
                         <h6>Arriving in 20-30 min</h6>
                         <h6>107 Rd No 8</h6>
                     </div>
+                    : <p></p>
+                    }
                     {
                         cart.map(item =>
-                            <Card className = "cart-item" style={{ width: '32rem',borderRadius: "10px", marginBottom : "10px" }}>
+                            <Card key={item.id} className = "cart-item" style={{ width: '32rem',borderRadius: "10px", marginBottom : "10px" }}>
                                 <Card.Body className = "cart">
                                     <div style = {{width : "100px"}} className = "cart-info">
                                         <Card.Img variant="top"  src={item.image} />
@@ -83,13 +102,26 @@ const Cart = (props) => {
                             </Card>
                         )
                     }
+                    {cart.length ?
                     <div>
                         <p className="d-flex justify-content-between"> <span> Subtotal. {totalQuantity} item </span> <span> {total} </span> </p>
                         <p className="d-flex justify-content-between"> <span> Tax </span> <span> {tax} </span> </p>
                         <p className="d-flex justify-content-between"> <span> Delivery fee </span> <span> {deliveryFee} </span> </p>
                         <p className="d-flex justify-content-between"> <span> Total </span> <span> {(total + deliveryFee + tax).toFixed(2)} </span> </p>
-                        <Button onClick={props.handleProccedCheckout} className = "checkout-btn" >Check Out Your Food</Button>
+                        {
+                            auth.user ?
+                            <Link to = "/">
+                            <Button onClick={props.handleProccedCheckout} className="checkout-btn" >Check Out Your Food</Button>
+                                    </Link>
+                            :
+                            
+                            <Button onClick={handleSignIn} className = "checkout-btn" > Login to procced </Button>
+                            
+                        }
+
                     </div>
+                        : <p></p>
+                    }
                 </Col>
             </Row>
         </Container>

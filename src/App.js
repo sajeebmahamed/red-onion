@@ -10,14 +10,33 @@ import {
 } from "react-router-dom";
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
+// import { addToDatabaseCart, getDatabaseCart, processOrder } from './utilities/databaseManager';
+import Login from './components/Login/Login';
+import { AuthContextProvider } from './components/Login/useAuth';
+import NoFound from './components/NoFound/NoFound';
 
 function App() {
   const [cart, setCart] = useState([]);
   const handleAddToCart = (item) => {
-    console.log("Cart implemented", item);
+    // console.log("Cart implemented", item);
     const newCart = [...cart, item];
     setCart(newCart);
+    //localstorage
+    // const sameItem = newCart.filter(pd => pd.id === item.id);
+    // const count = sameItem.length;
+    // addToDatabaseCart(item.id, count);
   }
+  // Retrive data from localstorage
+  // useEffect(() => {
+  //   const savedCard = getDatabaseCart();
+  //   const itemId = Object.values(savedCard);
+  //   const previousCart = itemId.map(existingId => {
+  //     const product = data.find(pd => pd.id === existingId);
+  //     product.quantity = savedCard[existingId];
+  //     return product;
+  //   })
+  //   setCart(previousCart);
+  // },[]) 
   const handleCheckOut = (productId, productQuantity) => {
     const newCart = cart.map(item => {
       if (item.id == productId) {
@@ -28,11 +47,15 @@ function App() {
     const filteredCart = newCart.filter(item => item.quantity > 0)
     setCart(filteredCart)
   }
+  
   const handleProccedCheckout = () => {
     setCart([]);
+    // processOrder();
   }
+  
   return (
     <div>
+      <AuthContextProvider>
       <Router>
         <Header to="/cart" cart={cart}>
           <Cart></Cart>
@@ -45,11 +68,19 @@ function App() {
           <Route path="/food/:itemId">
             <ProductDetails handleAddToCart={handleAddToCart}></ProductDetails>
           </Route>
-          <Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path = "/cart">
             <Cart handleProccedCheckout={handleProccedCheckout} handleCheckOut={handleCheckOut} cart={cart}></Cart>
           </Route>
+          <Route path = "*">
+            <NoFound></NoFound>
+          </Route>
+          
         </Switch>
       </Router>
+      </AuthContextProvider>
     </div>
   );
 }
