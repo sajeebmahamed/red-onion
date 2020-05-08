@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
-import data from '../../mock_data/foodItems.json';
 import Product from '../Products/Product';
 import ProductDetails from '../ProductDetails/ProductDetails';
 
 const Shop = () => {
-    const [foods, setFoods] = useState(data);
+    const [foods, setFoods] = useState([]);
     const [selectFoodType, setSelectFoodType] = useState("breakfast");
     const selectFoods = foods.filter(food => food.type === selectFoodType);
+
+    useEffect(() =>{
+        fetch('https://red-onion-eco-web.herokuapp.com/products')
+        .then(res => res.json())
+        .then(data => {
+            setFoods(data);
+        });
+    }, [])
   
     return (
         <Container>

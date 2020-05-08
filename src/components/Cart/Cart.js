@@ -41,7 +41,21 @@ const Cart = (props) => {
 
     //Hook From
     const { register, handleSubmit, errors } = useForm()
-    const onSubmit = data => { console.log(data) }
+    const onSubmit = data => {
+        console.log(auth.user.email);
+        const orderDetails = {email: auth.user.email};
+        fetch('https://red-onion-eco-web.herokuapp.com/placeOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderDetails)
+        })
+            .then(res => res.json())
+            .then(order => {
+               console.log("order placed")
+            })
+     }
     return (
         <Container>
             <Row> 

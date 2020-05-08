@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "type": "breakfast",
         "name": "Bagel and cream cheese",
         "price": 97,
@@ -9,7 +9,7 @@
         "image": "https://i.imgur.com/Wl7k2fB.png"
     },
     {
-        "id": 2,
+        "id": "2",
         "type": "breakfast",
         "name": "Breakfast sandwich",
         "price": 41,
@@ -18,7 +18,7 @@
         "image": "https://i.imgur.com/pMulVeT.png"
     },
     {
-        "id": 3,
+        "id": "3",
         "type": "breakfast",
         "name": "Baked Chicken",
         "price": 22,
@@ -27,7 +27,7 @@
         "image": "https://i.imgur.com/5F93w9j.png"
     },
     {
-        "id": 4,
+        "id": "4",
         "type": "breakfast",
         "name": "Eggs Bennedict",
         "price": 13,
@@ -36,7 +36,7 @@
         "image": "https://i.imgur.com/AWAT8Y0.png"
     },
     {
-        "id": 5,
+        "id": "5",
         "type": "breakfast",
         "name": "Toast Croissant Fried Egg",
         "price": 43,
@@ -45,7 +45,7 @@
         "image": "https://i.imgur.com/qnYQg1t.png"
     },
     {
-        "id": 6,
+        "id": "6",
         "type": "breakfast",
         "name": "Full Breakfast Egg Toast Brunch",
         "price": 92,
@@ -54,7 +54,7 @@
         "image": "https://i.imgur.com/DgNCAYg.png"
     },
     {
-        "id": 7,
+        "id": "7",
         "type": "lunch",
         "name": "Healthy Meal Plan",
         "price": 77,
@@ -63,7 +63,7 @@
         "image": "https://i.imgur.com/YgwQp2c.png"
     },
     {
-        "id": 8,
+        "id": "8",
         "type": "lunch",
         "name": "Fried Chicken Bento",
         "price": 62,
@@ -72,7 +72,7 @@
         "image": "https://i.imgur.com/IPsjoYb.png"
     },
     {
-        "id": 9,
+        "id": "9",
         "type": "lunch",
         "name": "Tarragon-Rubbed-Salmon",
         "price": 99,
@@ -81,7 +81,7 @@
         "image": "https://i.imgur.com/WDVuJgO.png"
     },
     {
-        "id": 10,
+        "id": "10",
         "type": "lunch",
         "name": "Indian Lunch",
         "price": 11,
@@ -90,7 +90,7 @@
         "image": "https://i.imgur.com/CRStNRX.png"
     },
     {
-        "id": 11,
+        "id": "11",
         "type": "lunch",
         "name": "Beef Steak",
         "price": 22,
@@ -99,7 +99,7 @@
         "image": "https://i.imgur.com/8PC5DYq.png"
     },
     {
-        "id": 12,
+        "id": "12",
         "type": "lunch",
         "name": "Honey-Soy-Glazed Salmon with Peppers",
         "price": 71,
@@ -108,7 +108,7 @@
         "image": "https://i.imgur.com/t6lNibr.png"
     },
     {
-        "id": 13,
+        "id": "13",
         "type": "dinner",
         "name": "Salmon with Grapefruit and Lentil Salad",
         "price": 74,
@@ -117,7 +117,7 @@
         "image": "https://i.imgur.com/hZNO83g.png"
     },
     {
-        "id": 14,
+        "id": "14",
         "type": "dinner",
         "name": "Lemony Salmon Piccata",
         "price": 21,
@@ -126,7 +126,7 @@
         "image": "https://i.imgur.com/IZYlp3l.png"
     },
     {
-        "id": 15,
+        "id": "15",
         "type": "dinner",
         "name": "Pork Tenderloin With Quinoa Pilaf",
         "price":62,
@@ -135,7 +135,7 @@
         "image": "https://i.imgur.com/C69xUgD.png"
     },
     {
-        "id": 16,
+        "id": "16",
         "type": "dinner",
         "name": "French fries with cheese",
         "price": 31,
@@ -144,7 +144,7 @@
         "image": "https://i.imgur.com/3XvVaPZ.png"
     },
     {
-        "id": 17,
+        "id": "17",
         "type": "dinner",
         "name": "Garlic Butter Baked Salmon",
         "price": 31,
@@ -153,7 +153,7 @@
         "image": "https://i.imgur.com/L4M965X.png"
     },
     {
-        "id": 18,
+        "id": "18",
         "type": "dinner",
         "name": "Baked Chicken",
         "price":42,

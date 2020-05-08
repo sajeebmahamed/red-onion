@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Banner from './components/Banner/Banner';
@@ -14,6 +14,7 @@ import Cart from './components/Cart/Cart';
 import Login from './components/Login/Login';
 import { AuthContextProvider } from './components/Login/useAuth';
 import NoFound from './components/NoFound/NoFound';
+import Inventory from './components/Inventory/Inventory';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -52,6 +53,7 @@ function App() {
     setCart([]);
     // processOrder();
   }
+
   
   return (
     <div>
